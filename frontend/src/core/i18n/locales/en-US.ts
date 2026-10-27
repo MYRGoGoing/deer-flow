@@ -297,7 +297,7 @@ export const enUS: Translations = {
     newChat: "New chat",
     chats: "Chats",
     channels: "Channels",
-    recentChats: "Recent chats",
+    recentChats: "Recent Q&A",
     demoChats: "Demo chats",
     agents: "Agents",
     scheduledTasks: "Scheduled tasks",
@@ -613,7 +613,7 @@ export const enUS: Translations = {
 
   // Page titles (document title)
   pages: {
-    appName: "DeerFlow",
+    appName: "Enterprise Knowledge Base",
     chats: "Chats",
     newChat: "New chat",
     untitled: "Untitled",

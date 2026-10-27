@@ -1,0 +1,312 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-09-15T17:41:03+08:00",
+  "golden_set_sha256": "80423f9e0bc7600d693ac597a3ed9798a5e1cb5f03262bcfc6615be93c3473f1",
+  "corpus_manifest_hash": "5de6c3c967c8c5b85330b02c023cc3baf6e8f04f51500484397be37a5533ce83",
+  "embedding_backend": "openai:BAAI/bge-small-zh-v1.5",
+  "generator": "openai:deepseek-v4-pro",
+  "judge": null,
+  "case_ids": [
+    "oov-001",
+    "oov-002",
+    "oov-003",
+    "oov-004",
+    "oov-005",
+    "oov-006",
+    "oov-007",
+    "oov-008",
+    "oov-009",
+    "oov-010"
+  ],
+  "run_signature": "0042f1007cedd24af5e738cb11127f5213ef16b94fbe03e85d28413ddfdf8b9b",
+  "metrics": {
+    "case_count": 10,
+    "answerable_count": 0,
+    "unanswerable_count": 10,
+    "refusal_accuracy": 1.0,
+    "keyword_recall": null,
+    "answer_token_f1": null,
+    "citation_validity": null,
+    "expected_source_citation_rate": null,
+    "faithfulness": null,
+    "answer_relevancy": null,
+    "judged_count": 0
+  },
+  "latency_ms": {
+    "mean": 4059.200258299461,
+    "p50": 3090.652416998637,
+    "p95": 7506.118000001152
+  },
+  "cases": [
+    {
+      "id": "oov-001",
+      "question": "Hyperchain Token 现在的价格和投资建议是什么？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/hvm-guide.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 4475.537999998778
+    },
+    {
+      "id": "oov-002",
+      "question": "2026 年 Hyperchain 产品路线图里承诺了哪些新功能？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "contract-dev/hvm-guide.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 2875.340207996487
+    },
+    {
+      "id": "oov-003",
+      "question": "趣链科技有多少员工，总部办公地址在哪里？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "platform/platform-overview.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "api-reference/jsonrpc-basics.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 5629.421875000844
+    },
+    {
+      "id": "oov-004",
+      "question": "Bitcoin 挖矿难度调整机制是怎么工作的？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/cryptography.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 3032.9480830005195
+    },
+    {
+      "id": "oov-005",
+      "question": "Solidity 0.9 有哪些新特性？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "platform/platform-overview.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 7506.118000001152
+    },
+    {
+      "id": "oov-006",
+      "question": "Kubernetes HPA 自动扩缩容应该怎么配置？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 3090.652416998637
+    },
+    {
+      "id": "oov-007",
+      "question": "浙江省数据合规细则对区块链存证的具体条款是什么？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 5007.5618750015565
+    },
+    {
+      "id": "oov-008",
+      "question": "企业采购 Hyperchain 私有化部署能打几折？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/architecture.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 3030.5215409971424
+    },
+    {
+      "id": "oov-009",
+      "question": "以太坊 PoS 最终性延迟的最新数值是多少？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "platform/rbft-consensus.md",
+        "platform/cryptography.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "platform/rbft-consensus.md",
+        "api-reference/jsonrpc-basics.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 2026.945292000164
+    },
+    {
+      "id": "oov-010",
+      "question": "公司内部差旅报销系统的登录入口在哪里？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "contract-dev/gas-billing.md",
+        "platform/architecture.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 3916.9552919993293
+    }
+  ]
+}

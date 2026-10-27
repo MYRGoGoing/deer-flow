@@ -52,5 +52,11 @@ export default async function WorkspaceLayout({
       assertNever(result);
   }
 
-  return <I18nProvider initialLocale={locale}>{content}</I18nProvider>;
+  return (
+    <I18nProvider initialLocale={locale}>
+      <div data-knowledge-workspace className="contents">
+        {content}
+      </div>
+    </I18nProvider>
+  );
 }

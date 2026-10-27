@@ -12,6 +12,7 @@ import {
   PaperclipIcon,
   PlusIcon,
   RocketIcon,
+  SearchIcon,
   SparklesIcon,
   SquareIcon,
   TargetIcon,
@@ -73,6 +74,7 @@ import { useAuth } from "@/core/auth/AuthProvider";
 import { getBackendBaseURL } from "@/core/config";
 import { useI18n } from "@/core/i18n/hooks";
 import { polishInputDraft } from "@/core/input-polish/api";
+import { KNOWLEDGE_QUESTIONS } from "@/core/knowledge-base/catalog";
 import { isHiddenFromUIMessage } from "@/core/messages/utils";
 import { useModels } from "@/core/models/hooks";
 import {
@@ -294,6 +296,7 @@ export function InputBox({
   draftAgentName,
   defaultModelName,
   initialValue,
+  knowledgeMode = false,
   onContextChange,
   onFollowupsVisibilityChange,
   onGoalChange,
@@ -329,6 +332,7 @@ export function InputBox({
    */
   defaultModelName?: string | null;
   initialValue?: string;
+  knowledgeMode?: boolean;
   onContextChange?: (
     context: Omit<
       AgentThreadContext,
@@ -2250,11 +2254,17 @@ export function InputBox({
                 onRemove={clearSelectedSlashSkill}
               />
               <span
-                aria-label={t.inputBox.placeholder}
+                aria-label={
+                  knowledgeMode ? "输入知识库问题" : t.inputBox.placeholder
+                }
                 aria-multiline="true"
                 contentEditable={!composerLocked}
                 data-empty={textInput.value.length === 0}
-                data-placeholder={t.inputBox.placeholder}
+                data-placeholder={
+                  knowledgeMode
+                    ? "输入技术问题，查询文档依据"
+                    : t.inputBox.placeholder
+                }
                 data-slot="input-group-control"
                 onBlur={() => setTextareaFocused(false)}
                 onCompositionEnd={() => {
@@ -2267,7 +2277,11 @@ export function InputBox({
                 onInput={handleInlineSkillInput}
                 onKeyDown={handleInlineSkillKeyDown}
                 onPaste={handleInlineSkillPaste}
-                aria-placeholder={t.inputBox.placeholder}
+                aria-placeholder={
+                  knowledgeMode
+                    ? "输入技术问题，查询文档依据"
+                    : t.inputBox.placeholder
+                }
                 ref={inlineSkillTextRef}
                 role="textbox"
                 suppressContentEditableWarning
@@ -2284,7 +2298,11 @@ export function InputBox({
             <PromptInputTextarea
               className="min-h-6! w-full min-w-0 p-0! leading-6!"
               disabled={composerLocked}
-              placeholder={t.inputBox.placeholder}
+              placeholder={
+                knowledgeMode
+                  ? "输入技术问题，查询文档依据"
+                  : t.inputBox.placeholder
+              }
               autoFocus={autoFocus}
               defaultValue={initialValue}
               onBlur={() => setTextareaFocused(false)}
@@ -2729,7 +2747,10 @@ export function InputBox({
         !selectedSlashSkill &&
         !showSkillSuggestions && (
           <div className="flex items-center justify-center pt-2">
-            <SuggestionList onSelectPlaceholder={onSelectPlaceholder} />
+            <SuggestionList
+              knowledgeMode={knowledgeMode}
+              onSelectPlaceholder={onSelectPlaceholder}
+            />
           </div>
         )}
 
@@ -2739,7 +2760,9 @@ export function InputBox({
           !isWelcomeMode && "absolute top-full right-0 left-0",
         )}
       >
-        {t.inputBox.disclaimer}
+        {knowledgeMode
+          ? "AI 回答仅供参考，重要信息请核对原文依据"
+          : t.inputBox.disclaimer}
       </p>
 
       <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
@@ -2813,8 +2836,10 @@ function VoiceInputButton({
 
 function SuggestionList({
   onSelectPlaceholder,
+  knowledgeMode = false,
 }: {
   onSelectPlaceholder: (newText: string) => void;
+  knowledgeMode?: boolean;
 }) {
   const { t } = useI18n();
   const { textInput } = usePromptInputController();
@@ -2826,6 +2851,23 @@ function SuggestionList({
     },
     [textInput, onSelectPlaceholder],
   );
+  if (knowledgeMode) {
+    return (
+      <div className="grid w-full grid-cols-1 gap-1 px-2 sm:grid-cols-2">
+        {KNOWLEDGE_QUESTIONS.map((question) => (
+          <button
+            key={question}
+            type="button"
+            onClick={() => handleSuggestionClick(question)}
+            className="text-muted-foreground hover:text-foreground hover:bg-muted flex items-center gap-2 rounded-md px-2 py-2 text-left text-xs leading-5"
+          >
+            <SearchIcon className="size-3.5 shrink-0" />
+            <span className="min-w-0 break-words">{question}</span>
+          </button>
+        ))}
+      </div>
+    );
+  }
   return (
     <Suggestions className="min-h-16 w-full max-w-full justify-center px-4 sm:w-fit sm:px-0">
       <ConfettiButton

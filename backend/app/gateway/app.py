@@ -26,6 +26,7 @@ from app.gateway.routers import (
     github_webhooks,
     input_polish,
     integrations,
+    knowledge_base,
     mcp,
     memory,
     models,
@@ -652,6 +653,9 @@ This gateway provides runtime endpoints for agent runs plus custom endpoints for
 
     # Input polishing API is mounted at /api/input-polish
     app.include_router(input_polish.router)
+
+    # Knowledge-base management API is mounted at /api/kb
+    app.include_router(knowledge_base.router)
 
     # User-facing IM channel connection API is mounted at /api/channels
     app.include_router(channel_connections.router)

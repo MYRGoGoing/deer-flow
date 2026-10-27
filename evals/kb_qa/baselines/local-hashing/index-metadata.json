@@ -1,0 +1,61 @@
+{
+  "schema_version": "2",
+  "created_at": "2026-09-15T08:28:19+00:00",
+  "git_revision": "99c926b7bbcd0570870bc24ceb13ab934935f49c",
+  "corpus_manifest_hash": "5de6c3c967c8c5b85330b02c023cc3baf6e8f04f51500484397be37a5533ce83",
+  "documents": [
+    {
+      "path": "api-reference/jsonrpc-basics.md",
+      "sha256": "a721615049fe43a9783e2b198e6563faba46391b63aca8426a0bbd7756fdbcf5"
+    },
+    {
+      "path": "baas/deployment-modes.md",
+      "sha256": "48bd3ff507fce700d99f937ef895af96b72d74b01c91e85963207ff467d247b2"
+    },
+    {
+      "path": "contract-dev/evm-compatibility.md",
+      "sha256": "2abc04b00268a7f5804e3c6308bd0db94f2b9e1076af9cee9fc62fa118aa9b03"
+    },
+    {
+      "path": "contract-dev/gas-billing.md",
+      "sha256": "e964d715f99759076dc355a46def0af6287878dea16499a9d9ec324efd9fae74"
+    },
+    {
+      "path": "contract-dev/hvm-guide.md",
+      "sha256": "f2dd09874b4e34ccefb78331c7c039ad57ce9799c2acda31c1b6ad3d7b30f910"
+    },
+    {
+      "path": "crosschain/bitxhub-overview.md",
+      "sha256": "2b751fc09bbe3dc3fc7b6ef2e4afd34b32b3cbc9f657c8c3326e63ad382174c4"
+    },
+    {
+      "path": "platform/architecture.md",
+      "sha256": "3c7edac38f355d3b227ea77535582ada684c0c317ea842bf37048782cd5e83a4"
+    },
+    {
+      "path": "platform/cryptography.md",
+      "sha256": "7e406219c717372a622be6e57024c6a4530bd362222d5c40937fbea3ace48fa0"
+    },
+    {
+      "path": "platform/platform-overview.md",
+      "sha256": "965cbe4bb38f5c234c80fa54ce6b47354ca0b75088e29c5f6035c1268d9322c3"
+    },
+    {
+      "path": "platform/rbft-consensus.md",
+      "sha256": "8aa489b382886f44207bce8532540876a302a4a19d6011d44cf9d7c6883f2169"
+    }
+  ],
+  "document_count": 10,
+  "chunk_count": 53,
+  "backend_name": "hashing-char-ngram-v1",
+  "dim": 512,
+  "chunk_config": {
+    "max_section_chars": 1500,
+    "child_chunk_chars": 400,
+    "child_overlap_chars": 60,
+    "min_child_chars": 20,
+    "parent_excerpt_chars": 1200
+  },
+  "vision_backend": "none",
+  "vision_pdf_dpi": 144
+}

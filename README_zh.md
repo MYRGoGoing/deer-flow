@@ -89,6 +89,26 @@ DeerFlow 新近集成了 BytePlus 自研的智能搜索与抓取工具集——[
 
 这条提示词是给 coding agent 用的。它会在需要时先 clone 仓库，优先选择 Docker，完成初始化，并在结束时告诉你下一条启动命令，以及还缺哪些配置需要你补充。
 
+## 企业知识库工作台（本副本）
+
+默认首页为 `/workspace/knowledge`，支持分类检索、原文片段预览和将问题带入知识问答。
+`/workspace/knowledge/documents` 支持上传入库、索引状态、版本查看、确认恢复与删除。
+页面中的文档数、片段数和检索耗时均来自后端，不使用模拟指标。
+
+在已完成配置与依赖安装的环境中，前端改动后先构建，再启动轻量服务：
+
+```bash
+cd frontend
+python3 ../scripts/pnpm.py build
+cd ..
+make kb-start
+```
+
+打开 `http://localhost:2026`，使用 `make stop` 停止。此方式复用生产构建，不开启热更新，
+也不在每次启动时重新同步依赖。本地 BGE 首次使用需要模型缓存；Agent 生成回答另需配置可用的对话模型。
+知识资料位于 `data/knowledge_base/`；推荐通过文档库页面上传，自动更新索引并保存历史版本。
+直接修改目录中的文件后，需要重新建立索引。检索页的“带入问答”只预填问题，不会自动发送。
+
 ## 快速开始
 
 ### 配置
@@ -96,9 +116,13 @@ DeerFlow 新近集成了 BytePlus 自研的智能搜索与抓取工具集——[
 1. **克隆 DeerFlow 仓库**
 
    ```bash
-   git clone https://github.com/bytedance/deer-flow.git
+   git clone https://github.com/MYRGoGoing/deer-flow.git
    cd deer-flow
    ```
+
+   本仓库是在 [ByteDance DeerFlow](https://github.com/bytedance/deer-flow) 基础上改造的企业知识库版本。
+   已有副本提交本地修改后，可执行 `git pull --ff-only` 拉取更新。
+   `.env`、`config.yaml`、模型缓存、生成的索引与运行数据不纳入 Git，换机器后需单独配置。
 
 2. **运行安装向导（推荐）**
 

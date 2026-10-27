@@ -2355,11 +2355,11 @@ run_ownership:
 #           models: {allow: "*"}
 #         user:
 #           tools: {allow: "*", deny: ["update_agent"]}
-#           routes: {allow: "*"}
+#           routes: {allow: "*", deny: ["kb:write"]}
 #           models: {allow: "*"}
 #         guest:
 #           tools: {allow: ["web_search", "read_file"]}
-#           routes: {allow: ["threads:read", "runs:read"]}
+#           routes: {allow: ["threads:read", "runs:read", "kb:read"]}
 #           models: {allow: ["gpt-4o-mini"]}
 authorization:
   enabled: false

@@ -3,12 +3,13 @@
 # serve.sh — Unified DeerFlow service launcher
 #
 # Usage:
-#   ./scripts/serve.sh [--dev|--prod] [--daemon] [--stop|--restart]
+#   ./scripts/serve.sh [--dev|--prod] [--daemon] [--kb-local] [--stop|--restart]
 #
 # Modes:
 #   --dev       Development mode with hot-reload (default)
 #   --prod      Production mode, pre-built frontend, no hot-reload
 #   --daemon    Run all services in background (nohup), exit after startup
+#   --kb-local  Run local BGE embeddings against the production KB index
 #
 # Actions:
 #   --skip-install  Skip dependency installation (faster restart)
@@ -19,6 +20,7 @@
 #   ./scripts/serve.sh --dev                 # Gateway dev, hot reload
 #   ./scripts/serve.sh --prod                # Gateway prod
 #   ./scripts/serve.sh --dev --daemon        # Gateway dev, background
+#   ./scripts/serve.sh --prod --daemon --skip-install --kb-local
 #   ./scripts/serve.sh --stop                # Stop all services
 #   ./scripts/serve.sh --restart --dev       # Restart dev services
 #
@@ -53,6 +55,7 @@ _pick_python() {
 DEV_MODE=true
 DAEMON_MODE=false
 SKIP_INSTALL=false
+KB_LOCAL_MODELS=false
 ACTION="start"   # start | stop | restart
 
 for arg in "$@"; do
@@ -61,11 +64,12 @@ for arg in "$@"; do
         --prod)    DEV_MODE=false ;;
         --daemon)  DAEMON_MODE=true ;;
         --skip-install) SKIP_INSTALL=true ;;
+        --kb-local) KB_LOCAL_MODELS=true ;;
         --stop)    ACTION="stop" ;;
         --restart) ACTION="restart" ;;
         *)
             echo "Unknown argument: $arg"
-            echo "Usage: $0 [--dev|--prod] [--daemon] [--skip-install] [--stop|--restart]"
+            echo "Usage: $0 [--dev|--prod] [--daemon] [--skip-install] [--kb-local] [--stop|--restart]"
             exit 1
             ;;
     esac
@@ -119,7 +123,7 @@ _is_deerflow_pid() {
 # (or starting, which stops first) isn't silently killing someone else's run.
 _report_reclaimed_ports() {
     local port pid files root owner
-    for port in 8001 3000 2026; do
+    for port in 8001 3000 2026 18080; do
         for pid in $(lsof -nP -iTCP:"$port" -sTCP:LISTEN -t 2>/dev/null); do
             _is_deerflow_pid "$pid" || continue
             files=$(lsof -b -w -p "$pid" 2>/dev/null)
@@ -254,6 +258,7 @@ stop_all() {
     _kill_repo_processes "next dev"
     _kill_repo_processes "next start"
     _kill_repo_processes "next-server"
+    _kill_repo_processes "scripts/kb_local_model_server.py"
     nginx -c "$REPO_ROOT/docker/nginx/nginx.local.conf" -p "$REPO_ROOT" -s quit 2>/dev/null || true
     sleep 1
     _kill_repo_nginx
@@ -264,6 +269,7 @@ stop_all() {
     _kill_repo_port 8001
     _kill_repo_port 3000
     _kill_repo_port 2026
+    _kill_repo_port 18080
     ./scripts/cleanup-containers.sh deer-flow-sandbox 2>/dev/null || true
     echo "✓ All services stopped"
 }
@@ -293,6 +299,10 @@ if $DAEMON_MODE; then
     MODE_LABEL="$MODE_LABEL [daemon]"
 fi
 
+if $KB_LOCAL_MODELS; then
+    MODE_LABEL="$MODE_LABEL [local BGE KB]"
+fi
+
 # Resolve pnpm through the same runner used by make check/install. Exporting
 # these values keeps paths with spaces intact when run_service invokes sh -c.
 if ! DEERFLOW_PNPM_PYTHON="$(_pick_python)"; then
@@ -306,7 +316,9 @@ export DEERFLOW_PNPM_PYTHON DEERFLOW_PNPM_RUNNER
 if $DEV_MODE; then
     FRONTEND_CMD='"$DEERFLOW_PNPM_PYTHON" "$DEERFLOW_PNPM_RUNNER" run dev'
 else
-    FRONTEND_CMD="env BETTER_AUTH_SECRET=$($DEERFLOW_PNPM_PYTHON -c 'import secrets; print(secrets.token_hex(16))') \"\$DEERFLOW_PNPM_PYTHON\" \"\$DEERFLOW_PNPM_RUNNER\" run preview"
+    # Run the prebuilt server directly so production startup never triggers
+    # pnpm's dependency-status check or an accidental modules purge.
+    FRONTEND_CMD="env BETTER_AUTH_SECRET=$($DEERFLOW_PNPM_PYTHON -c 'import secrets; print(secrets.token_hex(16))') node '$REPO_ROOT/frontend/node_modules/next/dist/bin/next' start"
 fi
 
 # Runtime path defaults. Local `make dev` launches Gateway from `backend/`,
@@ -397,6 +409,19 @@ else
     echo "⏩ Skipping dependency install (--skip-install)"
 fi
 
+# The local KB profile is intentionally conservative for a 16 GB development
+# machine. It uses the evaluated BGE index, caps ONNX to two threads, and keeps
+# reranking disabled because the generic MultiBERT model regressed on the
+# current Chinese technical golden set.
+if $KB_LOCAL_MODELS; then
+    export KB_INDEX_DIR="${KB_INDEX_DIR:-$REPO_ROOT/data/kb_index_local_bge}"
+    export KB_EMBEDDING_BACKEND="openai"
+    export KB_EMBEDDING_BASE_URL="http://127.0.0.1:18080/v1"
+    export KB_EMBEDDING_MODEL="BAAI/bge-small-zh-v1.5"
+    export KB_EMBEDDING_API_KEY="local-only"
+    export KB_RERANKER_BACKEND="none"
+fi
+
 # ── Banner ───────────────────────────────────────────────────────────────────
 
 echo ""
@@ -407,6 +432,9 @@ echo ""
 echo "  Mode: $MODE_LABEL"
 echo ""
 echo "  Services:"
+if $KB_LOCAL_MODELS; then
+echo "    KB Embedding → localhost:18080 (BGE-small-zh, ONNX, 2 threads)"
+fi
 echo "    Gateway     → localhost:8001  (REST API + agent runtime)"
 echo "    Frontend    → localhost:3000  (Next.js)"
 echo "    Nginx       → localhost:2026  (reverse proxy)"
@@ -462,9 +490,16 @@ run_service() {
 mkdir -p logs
 mkdir -p temp/client_body_temp temp/proxy_temp temp/fastcgi_temp temp/uwsgi_temp temp/scgi_temp
 
+# 0. Optional local embedding service
+if $KB_LOCAL_MODELS; then
+    run_service "KB Embedding" \
+        "OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 uv run --script scripts/kb_local_model_server.py --port 18080 --cache-dir data/model_cache --threads 2 --no-reranker > logs/kb-embedding.log 2>&1" \
+        18080 120
+fi
+
 # 1. Gateway API
 run_service "Gateway" \
-    "cd backend && PYTHONPATH=. uv run uvicorn app.gateway.app:app --host 0.0.0.0 --port 8001 $GATEWAY_EXTRA_FLAGS > ../logs/gateway.log 2>&1" \
+    "cd backend && PYTHONPATH=. .venv/bin/python -m uvicorn app.gateway.app:app --host 0.0.0.0 --port 8001 $GATEWAY_EXTRA_FLAGS > ../logs/gateway.log 2>&1" \
     8001 30
 
 # 2. Frontend

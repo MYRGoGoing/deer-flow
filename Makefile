@@ -1,6 +1,6 @@
 # DeerFlow - Unified Development Environment
 
-.PHONY: help config config-upgrade check install setup doctor support-bundle detect-thread-boundaries detect-blocking-io dev dev-daemon start start-daemon nginx stop up down clean docker-init docker-start docker-stop docker-logs docker-logs-frontend docker-logs-gateway docker-logs-redis
+.PHONY: help config config-upgrade check install setup doctor support-bundle detect-thread-boundaries detect-blocking-io dev dev-daemon start start-daemon kb-start nginx stop up down clean docker-init docker-start docker-stop docker-logs docker-logs-frontend docker-logs-gateway docker-logs-redis
 
 BASH ?= bash
 BACKEND_UV_RUN = cd backend && uv run
@@ -34,6 +34,7 @@ help:
 	@echo "  make dev-daemon      - Start dev services in background (daemon mode)"
 	@echo "  make start           - Start all services in production mode (optimized, no hot-reloading)"
 	@echo "  make start-daemon    - Start prod services in background (daemon mode)"
+	@echo "  make kb-start        - Start the low-resource local knowledge-base demo"
 	@echo "  make nginx           - Start nginx alone in the foreground (local dev config)"
 	@echo "  make stop            - Stop all running services"
 	@echo "  make clean           - Clean up processes and temporary files"
@@ -119,6 +120,13 @@ dev-daemon:
 start-daemon:
 	@$(PYTHON) ./scripts/check.py
 	@$(RUN_WITH_GIT_BASH) ./scripts/serve.sh --prod --daemon
+
+# Start the enterprise knowledge-base demo with low resource usage. This uses
+# the prebuilt frontend, skips dependency sync, and serves the local BGE index
+# without the reranker that regressed on the current Chinese technical corpus.
+kb-start:
+	@$(PYTHON) ./scripts/check.py
+	@$(RUN_WITH_GIT_BASH) ./scripts/serve.sh --prod --daemon --skip-install --kb-local
 
 # Start nginx alone in the foreground with the local dev config
 nginx:

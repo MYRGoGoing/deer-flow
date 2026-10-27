@@ -15,6 +15,10 @@ import {
 
 import { type ClipboardSafeStreamdownProps } from "@/components/ai-elements/streamdown";
 import {
+  extractNumberedCitations,
+  renderPreparedNumberedCitations,
+} from "@/core/citations/numeric-sources";
+import {
   preprocessStreamdownMarkdown,
   rehypeStreamingListItems,
   streamdownPluginsWithoutRawHtml,
@@ -26,6 +30,9 @@ import {
   toStreamdownComponents,
 } from "@/core/streamdown/components";
 import { cn } from "@/lib/utils";
+
+import { createNumberedCitationLinkComponent } from "../citations/numeric-citation-link";
+import { NumericCitationSourcesPanel } from "../citations/numeric-citation-sources-panel";
 
 import { createMarkdownLinkComponent } from "./markdown-link";
 
@@ -224,6 +231,14 @@ export function MarkdownContent({
     () => preprocessStreamdownMarkdown(displayContent),
     [displayContent],
   );
+  const numberedCitations = useMemo(
+    () => extractNumberedCitations(normalizedContent),
+    [normalizedContent],
+  );
+  const preparedContent = useMemo(
+    () => renderPreparedNumberedCitations(numberedCitations),
+    [numberedCitations],
+  );
   const effectiveRehypePlugins = useMemo(() => {
     const base = streamdownPluginsWithoutRawHtml.rehypePlugins ?? [];
     const extra = rehypePlugins ?? [];
@@ -236,7 +251,10 @@ export function MarkdownContent({
   }, [isStreamingRender, rehypePlugins]);
   const components = useMemo(() => {
     const baseComponents = {
-      a: createMarkdownLinkComponent(),
+      a:
+        numberedCitations.sources.length > 0
+          ? createNumberedCitationLinkComponent(numberedCitations.byIndex)
+          : createMarkdownLinkComponent(),
       ...componentsFromProps,
     };
     if (!isStreamingRender) {
@@ -247,21 +265,26 @@ export function MarkdownContent({
       code: componentsFromProps?.code ?? StreamingCode,
       pre: componentsFromProps?.pre ?? StreamingPre,
     };
-  }, [componentsFromProps, isStreamingRender]);
+  }, [componentsFromProps, isStreamingRender, numberedCitations]);
 
   if (!displayContent) return null;
 
   return (
-    <SafeMessageResponse
-      className={className}
-      remarkPlugins={remarkPlugins}
-      rehypePlugins={effectiveRehypePlugins}
-      components={toStreamdownComponents(components)}
-      parseIncompleteMarkdown={isLoading}
-      animated={streamdownSmoothStreamingAnimation}
-      isAnimating={isLoading}
-    >
-      {normalizedContent}
-    </SafeMessageResponse>
+    <>
+      <SafeMessageResponse
+        className={className}
+        remarkPlugins={remarkPlugins}
+        rehypePlugins={effectiveRehypePlugins}
+        components={toStreamdownComponents(components)}
+        parseIncompleteMarkdown={isLoading}
+        animated={streamdownSmoothStreamingAnimation}
+        isAnimating={isLoading}
+      >
+        {preparedContent}
+      </SafeMessageResponse>
+      {numberedCitations.sources.length > 0 && (
+        <NumericCitationSourcesPanel sources={numberedCitations.sources} />
+      )}
+    </>
   );
 }

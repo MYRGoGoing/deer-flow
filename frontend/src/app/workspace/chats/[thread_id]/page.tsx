@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
@@ -64,6 +64,8 @@ import { cn } from "@/lib/utils";
 export default function ChatPage() {
   const { t } = useI18n();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialQuestion = searchParams.get("question")?.slice(0, 1000);
   const { threadId, setThreadId, isNewThread, setIsNewThread, isMock } =
     useThreadChat();
   // `isNewThread` tracks whether the backend has the thread yet — gates the
@@ -409,8 +411,16 @@ export default function ChatPage() {
                         isWelcomeMode && "-translate-y-2 sm:-translate-y-4",
                       )}
                       isWelcomeMode={isWelcomeMode}
+                      knowledgeMode
+                      initialValue={isNewThread ? initialQuestion : undefined}
                       threadId={threadId}
-                      draftThreadId={isNewThread ? "new" : threadId}
+                      draftThreadId={
+                        isNewThread
+                          ? initialQuestion
+                            ? `knowledge:${initialQuestion}`
+                            : "new"
+                          : threadId
+                      }
                       autoFocus={isWelcomeMode}
                       status={
                         thread.error

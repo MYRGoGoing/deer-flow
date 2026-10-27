@@ -74,6 +74,15 @@ deer-flow/
 ## Important Development Guidelines
 
 ### Documentation Update Policy
+
+The enterprise knowledge-base extension exposes `/api/kb/search`, `/status`,
+`/documents` and document upload/version/restore/delete routes from
+`app/gateway/routers/knowledge_base.py`. Search reuses
+`deerflow.community.kb_search.retriever.hybrid_search` via `asyncio.to_thread`,
+returns only public passage fields plus measured elapsed milliseconds, and requires
+`kb:read`; mutations require `kb:write`. Search does not invoke a language model.
+Cover these routes in `tests/blocking_io/test_knowledge_base_router.py`.
+
 **CRITICAL: Always update README.md and AGENTS.md after every code change**
 
 When making code changes, you MUST update the relevant documentation:

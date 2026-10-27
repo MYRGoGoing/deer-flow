@@ -25,6 +25,8 @@ Inspired by LangGraph Auth system: https://github.com/langchain-ai/langgraph/blo
 - runs:create   - Run agent
 - runs:read     - View run
 - runs:cancel   - Cancel run
+- kb:read       - View knowledge-base documents and index health
+- kb:write      - Upload, delete, restore and audit knowledge-base documents
 """
 
 from __future__ import annotations
@@ -65,6 +67,10 @@ class Permissions:
     RUNS_CREATE = "runs:create"
     RUNS_READ = "runs:read"
     RUNS_CANCEL = "runs:cancel"
+
+    # Knowledge base
+    KB_READ = "kb:read"
+    KB_WRITE = "kb:write"
 
 
 class AuthContext:
@@ -124,6 +130,8 @@ _ALL_PERMISSIONS: list[str] = [
     Permissions.RUNS_CREATE,
     Permissions.RUNS_READ,
     Permissions.RUNS_CANCEL,
+    Permissions.KB_READ,
+    Permissions.KB_WRITE,
 ]
 
 

@@ -48,7 +48,7 @@ The frontend is a stateful chat application. Users create **threads** (conversat
 
 ### Source Layout (`src/`)
 
-- **`app/`** — Next.js App Router. Routes include `/` (landing), `/showcase/[thread_id]` (allowlisted public read-only demos), `/workspace/chats/[thread_id]` (authenticated chat), `/workspace/agents/[agent_name]` and `/workspace/agents/new` (custom agents), `/blog/…`, the `(auth)/{login,setup,auth/callback}` flow, `/[lang]/docs/…`, and `/api/…` route handlers (e.g. `/api/memory`).
+- **`app/`** — Next.js App Router. `/` redirects to `/workspace`, whose normal entry is `/workspace/knowledge` (enterprise document search); `/workspace/knowledge/documents` manages the corpus. Other routes include `/showcase/[thread_id]` (allowlisted public read-only demos), `/workspace/chats/[thread_id]` (authenticated chat), `/workspace/agents/[agent_name]` and `/workspace/agents/new` (custom agents), `/blog/…`, the `(auth)/{login,setup,auth/callback}` flow, `/[lang]/docs/…`, and `/api/…` route handlers (e.g. `/api/memory`). Static-demo workspace entry keeps its existing fixture redirect.
 - **`components/`** — React components:
   - `ui/` — Shadcn UI primitives (auto-generated, ESLint-ignored)
   - `ai-elements/` — Vercel AI SDK elements (auto-generated, ESLint-ignored)
@@ -149,6 +149,15 @@ Edit-and-rerun is deliberately latest-turn-only. `core/messages/utils.ts::getLat
 - `src/components/workspace/chats/chat-box.tsx` owns the desktop right-panel layout, and **all three** right panels (artifacts, sidecar, browser) share one `ResizablePanelGroup` — do not fork a non-resizable branch per panel kind, which is how the artifacts divider silently lost its drag handle (#4465). Open/close is `collapse()` / `resize()` on the side panel's imperative handle, not conditional rendering, so the width can animate. Three constraints hold that together: the size transition is applied from the group as `[&>[data-panel]]:transition-[flex-grow]` because the sized flex item is the library's own `[data-panel]` element rather than the child `className` lands on; it is applied only while an open/close is in flight, so a drag is not interpolated frame by frame; and during the animation the panel content is held at its final width in `cqw` and clipped, because a reflowing message list re-runs its scroll-to-bottom (pinned by `tests/e2e/sidecar-chat.spec.ts`'s no-animated-scroll test) and a re-wrapping composer changes which responsive labels it shows. Because the panel is `collapsible`, the library can also collapse it to `0%` on its own when a drag crosses `minSize`, without going through the state that owns it. `onResize` records the last positive size while the pointer moves, but the owning `sidecar` / `browserView` / `artifactsOpen` state must only mirror a final `0%` layout from `onLayoutChanged`, after pointer release; closing on the first `0%` resize frame breaks a continuous drag that reaches the edge and then reverses before release.
 
 ## Code Style
+
+### Knowledge Workspace
+
+- `components/workspace/knowledge/knowledge-workspace.tsx` owns the search and document-library views. `core/knowledge-base/api.ts` uses the shared authenticated fetcher for `/api/kb/*`; `catalog.ts` owns category display names and question suggestions.
+- Search invokes the existing backend hybrid retriever, not an LLM. Counts, index health, passages and elapsed milliseconds must come from the API, never fabricated metrics. Queries/categories live in the URL; TanStack Query caches for 30 seconds without interval polling.
+- `/workspace/chats/new?question=...` passes a question into the existing chat composer as an unsent draft. Keep the existing thread creation, streaming and citation path; do not introduce a parallel chat runtime or submit on navigation. `knowledgeMode` changes only the default workspace composer's wording and suggestions, not custom-agent composers.
+- Upload, restore and delete use existing KB mutations and invalidate KB queries. Restore and delete require confirmation. The backend remains the permission boundary; show actual authorization/index/service errors instead of treating them as empty results.
+- Main navigation is knowledge search, document library and question history; Agent management and scheduled tasks remain accessible through the secondary menu, with upstream attribution preserved.
+- The workspace layout's `data-knowledge-workspace` marker scopes neutral light/dark theme tokens in `styles/globals.css`, including portaled dialogs, without changing public showcase and documentation themes.
 
 - **Imports**: Enforced ordering (builtin → external → internal → parent → sibling), alphabetized, newlines between groups. Use inline type imports: `import { type Foo }`.
 - **Unused variables**: Prefix with `_`.

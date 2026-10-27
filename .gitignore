@@ -26,6 +26,17 @@ bench_optimized.jsonl
 results.jsonl
 backend/scripts/benchmark/*.jsonl
 
+# Knowledge-base search index (rebuild via ingest CLI)
+data/kb_index/
+data/kb_index_local_bge/
+data/model_cache/
+# Runtime document snapshots and audit logs (contain uploaded source material)
+data/kb_management/
+evals/kb_qa/e2e-checkpoint.json
+evals/kb_qa/baselines/**/*checkpoint.json
+evals/kb_qa/baselines/**/*.log
+frontend/node_modules.incomplete/
+
 # Environment variables
 .env
 

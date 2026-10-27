@@ -1,0 +1,3481 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-09-15T17:30:27+08:00",
+  "golden_set_sha256": "80423f9e0bc7600d693ac597a3ed9798a5e1cb5f03262bcfc6615be93c3473f1",
+  "index_metadata": {
+    "schema_version": "2",
+    "created_at": "2026-09-15T09:29:44+00:00",
+    "git_revision": "99c926b7bbcd0570870bc24ceb13ab934935f49c",
+    "corpus_manifest_hash": "5de6c3c967c8c5b85330b02c023cc3baf6e8f04f51500484397be37a5533ce83",
+    "documents": [
+      {
+        "path": "api-reference/jsonrpc-basics.md",
+        "sha256": "a721615049fe43a9783e2b198e6563faba46391b63aca8426a0bbd7756fdbcf5"
+      },
+      {
+        "path": "baas/deployment-modes.md",
+        "sha256": "48bd3ff507fce700d99f937ef895af96b72d74b01c91e85963207ff467d247b2"
+      },
+      {
+        "path": "contract-dev/evm-compatibility.md",
+        "sha256": "2abc04b00268a7f5804e3c6308bd0db94f2b9e1076af9cee9fc62fa118aa9b03"
+      },
+      {
+        "path": "contract-dev/gas-billing.md",
+        "sha256": "e964d715f99759076dc355a46def0af6287878dea16499a9d9ec324efd9fae74"
+      },
+      {
+        "path": "contract-dev/hvm-guide.md",
+        "sha256": "f2dd09874b4e34ccefb78331c7c039ad57ce9799c2acda31c1b6ad3d7b30f910"
+      },
+      {
+        "path": "crosschain/bitxhub-overview.md",
+        "sha256": "2b751fc09bbe3dc3fc7b6ef2e4afd34b32b3cbc9f657c8c3326e63ad382174c4"
+      },
+      {
+        "path": "platform/architecture.md",
+        "sha256": "3c7edac38f355d3b227ea77535582ada684c0c317ea842bf37048782cd5e83a4"
+      },
+      {
+        "path": "platform/cryptography.md",
+        "sha256": "7e406219c717372a622be6e57024c6a4530bd362222d5c40937fbea3ace48fa0"
+      },
+      {
+        "path": "platform/platform-overview.md",
+        "sha256": "965cbe4bb38f5c234c80fa54ce6b47354ca0b75088e29c5f6035c1268d9322c3"
+      },
+      {
+        "path": "platform/rbft-consensus.md",
+        "sha256": "8aa489b382886f44207bce8532540876a302a4a19d6011d44cf9d7c6883f2169"
+      }
+    ],
+    "document_count": 10,
+    "chunk_count": 53,
+    "backend_name": "openai:BAAI/bge-small-zh-v1.5",
+    "dim": 512,
+    "chunk_config": {
+      "max_section_chars": 1500,
+      "child_chunk_chars": 400,
+      "child_overlap_chars": 60,
+      "min_child_chars": 20,
+      "parent_excerpt_chars": 1200
+    },
+    "vision_backend": "none",
+    "vision_pdf_dpi": 144
+  },
+  "runtime_config": {
+    "project_root": "/Users/mengyangran/简历/简历项目学习/deer-flow_two",
+    "corpus_dir": "/Users/mengyangran/简历/简历项目学习/deer-flow_two/data/knowledge_base",
+    "index_dir": "/Users/mengyangran/简历/简历项目学习/deer-flow_two/data/kb_index_local_bge",
+    "max_document_bytes": 10485760,
+    "chunking": {
+      "max_section_chars": 1500,
+      "child_chunk_chars": 400,
+      "child_overlap_chars": 60,
+      "min_child_chars": 20,
+      "parent_excerpt_chars": 1200
+    },
+    "retrieval": {
+      "top_k": 8,
+      "fetch_k": 20,
+      "rrf_k": 60,
+      "dense_threshold": 0.35,
+      "bm25_threshold": 8.0,
+      "consensus_rank": 1,
+      "consensus_dense": 0.22,
+      "consensus_bm25": 6.0
+    },
+    "embedding": {
+      "backend": "openai",
+      "base_url": "http://127.0.0.1:18080/v1",
+      "model": "BAAI/bge-small-zh-v1.5",
+      "batch_size": 32,
+      "timeout_seconds": 30.0,
+      "max_retries": 3,
+      "hashing_dim": 512
+    },
+    "reranker": {
+      "backend": "http",
+      "base_url": "http://127.0.0.1:18080/v1",
+      "model": "ms-marco-MultiBERT-L-12",
+      "candidate_count": 20,
+      "timeout_seconds": 30.0,
+      "max_retries": 2,
+      "fail_open": true
+    },
+    "evaluation": {
+      "cutoffs": [
+        5,
+        10
+      ],
+      "base_url": "http://127.0.0.1:18080/v1",
+      "model": "",
+      "judge_model": "",
+      "timeout_seconds": 60.0,
+      "max_retries": 2,
+      "max_tokens": 1200
+    },
+    "vision": {
+      "backend": "none",
+      "base_url": "http://127.0.0.1:18080/v1",
+      "model": "",
+      "timeout_seconds": 60.0,
+      "max_retries": 2,
+      "max_image_bytes": 8388608,
+      "pdf_dpi": 144,
+      "max_tokens": 1200
+    },
+    "management_dir": "/Users/mengyangran/简历/简历项目学习/deer-flow_two/data/kb_management"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "metrics": {
+    "question_count": 60,
+    "answerable_count": 50,
+    "unanswerable_count": 10,
+    "configs": {
+      "dense": {
+        "recall@5": 0.92,
+        "recall@10": 0.96,
+        "precision@5": 0.41999999999999993,
+        "precision@10": 0.2820000000000001,
+        "latency_p50_ms": 6.514958004117943,
+        "latency_p95_ms": 8.72637499924167
+      },
+      "bm25": {
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "precision@5": 0.44,
+        "precision@10": 0.28400000000000014,
+        "latency_p50_ms": 0.2626669993333053,
+        "latency_p95_ms": 0.5873750014870893
+      },
+      "hybrid_rrf": {
+        "recall@5": 0.98,
+        "recall@10": 1.0,
+        "precision@5": 0.4279999999999999,
+        "precision@10": 0.3040000000000001,
+        "latency_p50_ms": 11.926874998607673,
+        "latency_p95_ms": 14.86470799864037
+      },
+      "hybrid_rerank": {
+        "recall@5": 0.92,
+        "recall@10": 0.96,
+        "precision@5": 0.3759999999999999,
+        "precision@10": 0.2920000000000001,
+        "latency_p50_ms": 682.4283749992901,
+        "latency_p95_ms": 939.5654169966292
+      }
+    },
+    "evidence_gate": {
+      "answerable_retention": 1.0,
+      "unanswerable_refusal_accuracy": 0.0,
+      "accuracy": 0.8333333333333334
+    }
+  },
+  "cases": [
+    {
+      "id": "arch-001",
+      "question": "Hyperchain 平台整体架构分为哪几层？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.6974579991947394,
+        "bm25": 239.44912500155624,
+        "hybrid_rrf": 13.262249998660991,
+        "hybrid_rerank": 520.8216659993923
+      }
+    },
+    {
+      "id": "arch-002",
+      "question": "平台默认使用哪个账本存储引擎？是否可以替换？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04291699951863848,
+        "bm25": 0.16516699906787835,
+        "hybrid_rrf": 5.255832998955157,
+        "hybrid_rerank": 865.5013329989742
+      }
+    },
+    {
+      "id": "arch-003",
+      "question": "VP 节点和 NVP 节点的职责有什么区别？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 2
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 2
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.03724999987753108,
+        "bm25": 0.2626669993333053,
+        "hybrid_rrf": 4.804917000001296,
+        "hybrid_rerank": 624.952124999254
+      }
+    },
+    {
+      "id": "arch-004",
+      "question": "Namespace 多账本机制如何实现业务隔离？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.037625002732966095,
+        "bm25": 0.1695829996606335,
+        "hybrid_rrf": 4.920708001009189,
+        "hybrid_rerank": 831.2323749996722
+      }
+    },
+    {
+      "id": "arch-005",
+      "question": "JSON-RPC 请求不传 namespace 时默认使用哪个账本？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 3
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 3
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04012499994132668,
+        "bm25": 0.22729199918103404,
+        "hybrid_rrf": 5.301124998368323,
+        "hybrid_rerank": 848.9508750026289
+      }
+    },
+    {
+      "id": "crypto-001",
+      "question": "SM2 算法在 Hyperchain 里主要用于什么场景？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 2
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 2
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.03383299917913973,
+        "bm25": 0.17583299995749258,
+        "hybrid_rrf": 4.444499998498941,
+        "hybrid_rerank": 846.2499999986903
+      }
+    },
+    {
+      "id": "crypto-002",
+      "question": "SM3 密码杂凑算法有哪些用途？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.03925000055460259,
+        "bm25": 0.13058300100965425,
+        "hybrid_rrf": 5.052999997133156,
+        "hybrid_rerank": 832.4051250019693
+      }
+    },
+    {
+      "id": "crypto-003",
+      "question": "SM4 在国密支持中解决什么问题？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.040082999475998804,
+        "bm25": 0.23033300021779723,
+        "hybrid_rrf": 5.13900000078138,
+        "hybrid_rerank": 852.2850420013128
+      }
+    },
+    {
+      "id": "crypto-004",
+      "question": "同一个 namespace 里能否混用国密和国际算法？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.055791999329812825,
+        "bm25": 0.24866700186976232,
+        "hybrid_rrf": 5.189875002542976,
+        "hybrid_rerank": 885.3369999997085
+      }
+    },
+    {
+      "id": "crypto-005",
+      "question": "联盟链证书体系中根 CA 由谁持有？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04629099930753,
+        "bm25": 0.26441700174473226,
+        "hybrid_rrf": 5.325832997186808,
+        "hybrid_rerank": 458.30333399862866
+      }
+    },
+    {
+      "id": "overview-001",
+      "question": "Hyperchain 是什么类型的区块链平台？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": 6
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 6
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.06520800161524676,
+        "bm25": 0.2225420030299574,
+        "hybrid_rrf": 5.695250001735985,
+        "hybrid_rerank": 474.1211670007033
+      }
+    },
+    {
+      "id": "overview-002",
+      "question": "Hyperchain 单链的交易吞吐量处于什么量级？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": 6
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 6
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 2
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 2
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05879200034542009,
+        "bm25": 0.24516600024071522,
+        "hybrid_rrf": 5.189166000491241,
+        "hybrid_rerank": 868.8826659999904
+      }
+    },
+    {
+      "id": "overview-003",
+      "question": "平台支持哪两种智能合约引擎？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": 10
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 10
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 4
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 4
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": 6
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 6
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.06237499837880023,
+        "bm25": 0.21033300072303973,
+        "hybrid_rrf": 5.129667002620408,
+        "hybrid_rerank": 845.6472079997184
+      }
+    },
+    {
+      "id": "overview-004",
+      "question": "Hyperchain 的可插拔架构包括哪些模块？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 2
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 5
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 5
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04333399920142256,
+        "bm25": 0.18183399879490025,
+        "hybrid_rrf": 5.34545900154626,
+        "hybrid_rerank": 849.0633750006964
+      }
+    },
+    {
+      "id": "overview-005",
+      "question": "开放联盟链品牌飞洛面向什么用户？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05262500053504482,
+        "bm25": 0.3266670028096996,
+        "hybrid_rrf": 5.021459001000039,
+        "hybrid_rerank": 844.9643329986429
+      }
+    },
+    {
+      "id": "rbft-001",
+      "question": "RBFT 的全称和定位是什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 5
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 5
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 5
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 5
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.054041000112192705,
+        "bm25": 0.21858400214114226,
+        "hybrid_rrf": 5.5572090022906195,
+        "hybrid_rerank": 482.54008299772977
+      }
+    },
+    {
+      "id": "rbft-002",
+      "question": "4 个共识节点在 RBFT 下能容忍几个拜占庭故障节点？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05533299918170087,
+        "bm25": 1.4934580030967481,
+        "hybrid_rrf": 5.3708340019511525,
+        "hybrid_rerank": 890.8492910013592
+      }
+    },
+    {
+      "id": "rbft-003",
+      "question": "RBFT 正常共识包含哪三个阶段？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.03720899985637516,
+        "bm25": 0.13454200234264135,
+        "hybrid_rrf": 5.234249998466112,
+        "hybrid_rerank": 895.6309999994119
+      }
+    },
+    {
+      "id": "rbft-004",
+      "question": "RBFT 的 quorum 数量通常是多少？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04325000190874562,
+        "bm25": 0.15666699982830323,
+        "hybrid_rrf": 5.42466700062505,
+        "hybrid_rerank": 491.92191700058174
+      }
+    },
+    {
+      "id": "rbft-005",
+      "question": "RBFT 什么时候会触发视图切换？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.054042000556364655,
+        "bm25": 0.21633299911627546,
+        "hybrid_rrf": 5.569249999098247,
+        "hybrid_rerank": 857.0884159998968
+      }
+    },
+    {
+      "id": "evm-001",
+      "question": "Hyperchain 能否直接部署 Solidity 合约？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.06279200169956312,
+        "bm25": 0.22883400015416555,
+        "hybrid_rrf": 4.678624998632586,
+        "hybrid_rerank": 523.442249999789
+      }
+    },
+    {
+      "id": "evm-002",
+      "question": "ERC-20 和 ERC-721 合约能否迁移到 Hyperchain？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05508299727807753,
+        "bm25": 0.22245800209930167,
+        "hybrid_rrf": 5.703041999367997,
+        "hybrid_rerank": 897.126957999717
+      }
+    },
+    {
+      "id": "evm-003",
+      "question": "Remix 编译产物如何在 Hyperchain 上使用？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 3
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": 7
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 7
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05162500019650906,
+        "bm25": 0.24191699776565656,
+        "hybrid_rrf": 5.194541998207569,
+        "hybrid_rerank": 485.7012909997138
+      }
+    },
+    {
+      "id": "evm-004",
+      "question": "Hyperchain 的共识与以太坊 PoS 有何差异？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.055791999329812825,
+        "bm25": 0.2830840021488257,
+        "hybrid_rrf": 5.513583000720246,
+        "hybrid_rerank": 891.4785000015399
+      }
+    },
+    {
+      "id": "evm-005",
+      "question": "复用 web3.js 或 web3.py 时需要注意什么参数？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.053750001825392246,
+        "bm25": 0.3617920010583475,
+        "hybrid_rrf": 6.0365829995134845,
+        "hybrid_rerank": 580.777750001289
+      }
+    },
+    {
+      "id": "gas-001",
+      "question": "Gas 在 Hyperchain 中起什么作用？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 3
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 5
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 5
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04450000051292591,
+        "bm25": 0.15875000099185854,
+        "hybrid_rrf": 5.324707999534439,
+        "hybrid_rerank": 501.50754199785297
+      }
+    },
+    {
+      "id": "gas-002",
+      "question": "平台支持哪两种 Gas 计费模式？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05712499842047691,
+        "bm25": 0.21962500250083394,
+        "hybrid_rrf": 6.2176249994081445,
+        "hybrid_rerank": 532.3661669972353
+      }
+    },
+    {
+      "id": "gas-003",
+      "question": "计费模式下手续费怎么计算？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05149999924469739,
+        "bm25": 0.18783300038194284,
+        "hybrid_rrf": 5.457000002934365,
+        "hybrid_rerank": 523.0404160029138
+      }
+    },
+    {
+      "id": "gas-004",
+      "question": "合约执行失败回滚后，已消耗 Gas 会退还吗？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05212500036577694,
+        "bm25": 0.3227920024073683,
+        "hybrid_rrf": 5.6349580008827616,
+        "hybrid_rerank": 533.4645840011945
+      }
+    },
+    {
+      "id": "gas-005",
+      "question": "gasLimit 不足时交易会发生什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04058299964526668,
+        "bm25": 0.13629100067191757,
+        "hybrid_rrf": 5.115208998176968,
+        "hybrid_rerank": 502.10024999978486
+      }
+    },
+    {
+      "id": "hvm-001",
+      "question": "HVM 使用什么语言开发智能合约？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.040625000110594556,
+        "bm25": 0.15808300304342993,
+        "hybrid_rrf": 5.141958998137852,
+        "hybrid_rerank": 884.9284170028113
+      }
+    },
+    {
+      "id": "hvm-002",
+      "question": "HVM 合约编译打包后的产物格式是什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.054541997087653726,
+        "bm25": 0.4153749978286214,
+        "hybrid_rrf": 5.759625000791857,
+        "hybrid_rerank": 522.0707080006832
+      }
+    },
+    {
+      "id": "hvm-003",
+      "question": "HVM 如何声明合约入口和可调用方法？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04212500061839819,
+        "bm25": 0.17508299788460135,
+        "hybrid_rrf": 5.276749998301966,
+        "hybrid_rerank": 911.3079579983605
+      }
+    },
+    {
+      "id": "hvm-004",
+      "question": "HVM 合约类的成员变量代表什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05374999818741344,
+        "bm25": 0.25879199893097393,
+        "hybrid_rrf": 5.859291999513516,
+        "hybrid_rerank": 515.9784589995979
+      }
+    },
+    {
+      "id": "hvm-005",
+      "question": "HVM 和 EVM 合约能否互相调用？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.0682500030961819,
+        "bm25": 0.2447500010021031,
+        "hybrid_rrf": 5.386041997553548,
+        "hybrid_rerank": 886.2147089967038
+      }
+    },
+    {
+      "id": "baas-001",
+      "question": "BaaS 平台提供哪些生命周期能力？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.0529589997313451,
+        "bm25": 0.146458998642629,
+        "hybrid_rrf": 5.385125001339475,
+        "hybrid_rerank": 536.1162910012354
+      }
+    },
+    {
+      "id": "baas-002",
+      "question": "BaaS 支持哪三种部署形态？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.0596249992668163,
+        "bm25": 0.15216699830489233,
+        "hybrid_rrf": 4.70508400030667,
+        "hybrid_rerank": 917.1457080010441
+      }
+    },
+    {
+      "id": "baas-003",
+      "question": "金融或政务强合规场景应选择哪种 BaaS 形态？为什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05524999869521707,
+        "bm25": 0.34624999898369424,
+        "hybrid_rrf": 6.202500000654254,
+        "hybrid_rerank": 676.0470829976839
+      }
+    },
+    {
+      "id": "baas-004",
+      "question": "BaaS 私有化部署的共识节点硬件基线是多少？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.15574999997625127,
+        "bm25": 0.8833749998302665,
+        "hybrid_rrf": 10.2217079984257,
+        "hybrid_rerank": 788.2860419995268
+      }
+    },
+    {
+      "id": "baas-005",
+      "question": "扩容共识节点需要停链吗？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05308300023898482,
+        "bm25": 0.4259589986759238,
+        "hybrid_rrf": 6.0069579994888045,
+        "hybrid_rerank": 930.7242079994467
+      }
+    },
+    {
+      "id": "xchain-001",
+      "question": "BitXHub 采用什么架构解决异构链互操作？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.06270800076890737,
+        "bm25": 0.5873750014870893,
+        "hybrid_rrf": 6.446499999583466,
+        "hybrid_rerank": 934.1792499981239
+      }
+    },
+    {
+      "id": "xchain-002",
+      "question": "BitXHub 总体架构包含哪三类角色？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04816699947696179,
+        "bm25": 0.2964589984912891,
+        "hybrid_rrf": 5.600125001365086,
+        "hybrid_rerank": 920.7027080010448
+      }
+    },
+    {
+      "id": "xchain-003",
+      "question": "Pier 在 BitXHub 中负责什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.06370899791363627,
+        "bm25": 0.24683399897185154,
+        "hybrid_rrf": 4.730125001515262,
+        "hybrid_rerank": 551.526625000406
+      }
+    },
+    {
+      "id": "xchain-004",
+      "question": "IBTP 协议的作用是什么？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.046624998503830284,
+        "bm25": 0.39604199992027134,
+        "hybrid_rrf": 5.192790998989949,
+        "hybrid_rerank": 497.8364589987905
+      }
+    },
+    {
+      "id": "xchain-005",
+      "question": "BitXHub 如何防止伪造跨链消息？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.8,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.6,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.5,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.06299999949987978,
+        "bm25": 0.41725000119186006,
+        "hybrid_rrf": 6.043833000148879,
+        "hybrid_rerank": 536.0367499997665
+      }
+    },
+    {
+      "id": "rpc-001",
+      "question": "Hyperchain JSON-RPC 支持哪些访问通道？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05820799924549647,
+        "bm25": 0.5279169999994338,
+        "hybrid_rrf": 6.0419580004236195,
+        "hybrid_rerank": 966.0138330000336
+      }
+    },
+    {
+      "id": "rpc-002",
+      "question": "JSON-RPC 请求体的关键字段有哪些？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 2
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05783400047221221,
+        "bm25": 0.3620409988798201,
+        "hybrid_rrf": 5.619957999442704,
+        "hybrid_rerank": 560.858291999466
+      }
+    },
+    {
+      "id": "rpc-003",
+      "question": "JSON-RPC 只读调用会上链或消耗 gas 吗？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.1,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 3
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 3
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.05416699787019752,
+        "bm25": 0.28945799931534566,
+        "hybrid_rrf": 5.771000000095228,
+        "hybrid_rerank": 592.5937080028234
+      }
+    },
+    {
+      "id": "rpc-004",
+      "question": "JSON-RPC error 对象由哪些字段组成？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 2
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 2
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.0658329990983475,
+        "bm25": 0.2674999996088445,
+        "hybrid_rrf": 5.896374997973908,
+        "hybrid_rerank": 564.6253749982861
+      }
+    },
+    {
+      "id": "rpc-005",
+      "question": "JSON-RPC 批量请求的响应顺序如何确定？",
+      "unanswerable": false,
+      "metrics": {
+        "dense@5": {
+          "recall": 1,
+          "precision": 0.2,
+          "rank": 1
+        },
+        "dense@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "bm25@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "bm25@10": {
+          "recall": 1,
+          "precision": 0.3,
+          "rank": 1
+        },
+        "hybrid_rrf@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rrf@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@5": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        },
+        "hybrid_rerank@10": {
+          "recall": 1,
+          "precision": 0.4,
+          "rank": 1
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": true,
+      "latency_ms": {
+        "dense": 0.04558300133794546,
+        "bm25": 0.3316670008643996,
+        "hybrid_rrf": 6.781957999919541,
+        "hybrid_rerank": 561.0839170003601
+      }
+    },
+    {
+      "id": "oov-001",
+      "question": "Hyperchain Token 现在的价格和投资建议是什么？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.061333001212915406,
+        "bm25": 0.37570800122921355,
+        "hybrid_rrf": 5.8694580002338625,
+        "hybrid_rerank": 545.1426250001532
+      }
+    },
+    {
+      "id": "oov-002",
+      "question": "2026 年 Hyperchain 产品路线图里承诺了哪些新功能？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.0453750035376288,
+        "bm25": 0.3542910017131362,
+        "hybrid_rrf": 5.929416998696979,
+        "hybrid_rerank": 542.9297079972457
+      }
+    },
+    {
+      "id": "oov-003",
+      "question": "趣链科技有多少员工，总部办公地址在哪里？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.05337499896995723,
+        "bm25": 0.46312499762279913,
+        "hybrid_rrf": 5.703124999854481,
+        "hybrid_rerank": 914.7569999986445
+      }
+    },
+    {
+      "id": "oov-004",
+      "question": "Bitcoin 挖矿难度调整机制是怎么工作的？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.05845800114911981,
+        "bm25": 0.44933300159755163,
+        "hybrid_rrf": 6.024374997650739,
+        "hybrid_rerank": 510.9468750015367
+      }
+    },
+    {
+      "id": "oov-005",
+      "question": "Solidity 0.9 有哪些新特性？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.04283299858798273,
+        "bm25": 0.15883299784036353,
+        "hybrid_rrf": 4.699875000369502,
+        "hybrid_rerank": 880.8546660002321
+      }
+    },
+    {
+      "id": "oov-006",
+      "question": "Kubernetes HPA 自动扩缩容应该怎么配置？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.0429579995397944,
+        "bm25": 0.3585839986044448,
+        "hybrid_rrf": 5.93062500047381,
+        "hybrid_rerank": 484.5695420008269
+      }
+    },
+    {
+      "id": "oov-007",
+      "question": "浙江省数据合规细则对区块链存证的具体条款是什么？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.04470899875741452,
+        "bm25": 0.3771249976125546,
+        "hybrid_rrf": 5.848000000696629,
+        "hybrid_rerank": 581.1322080007812
+      }
+    },
+    {
+      "id": "oov-008",
+      "question": "企业采购 Hyperchain 私有化部署能打几折？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.05612499808194116,
+        "bm25": 0.3219999998691492,
+        "hybrid_rrf": 5.8330419997219,
+        "hybrid_rerank": 582.2027920003165
+      }
+    },
+    {
+      "id": "oov-009",
+      "question": "以太坊 PoS 最终性延迟的最新数值是多少？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.04254099985701032,
+        "bm25": 0.2795000000332948,
+        "hybrid_rrf": 6.787541999074165,
+        "hybrid_rerank": 993.9965830017172
+      }
+    },
+    {
+      "id": "oov-010",
+      "question": "公司内部差旅报销系统的登录入口在哪里？",
+      "unanswerable": true,
+      "metrics": {
+        "dense@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "dense@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "bm25@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rrf@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@5": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        },
+        "hybrid_rerank@10": {
+          "recall": 0,
+          "precision": 0.0,
+          "rank": null
+        }
+      },
+      "refusal_predicted": false,
+      "refusal_correct": false,
+      "latency_ms": {
+        "dense": 0.04720799915958196,
+        "bm25": 0.2812079983414151,
+        "hybrid_rrf": 6.486124999355525,
+        "hybrid_rerank": 682.8159159995266
+      }
+    }
+  ]
+}

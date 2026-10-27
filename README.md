@@ -103,14 +103,46 @@ That prompt is intended for coding agents. It tells the agent to clone the repo 
 
 ## Quick Start
 
+### Enterprise Knowledge-Base Workspace (This Fork)
+
+This fork opens the document-search workspace instead of the upstream marketing
+page. `/workspace/knowledge` provides category-filtered hybrid retrieval and source
+passage previews; `/workspace/knowledge/documents` provides uploads, index status,
+version history, confirmed restoration and deletion. Questions can be passed to the
+existing streaming Agent chat as an unsent draft. Displayed corpus counts and search
+timings come from the backend; retrieval does not require an LLM call.
+
+After configuring the existing project and installing dependencies, build once and
+start the low-resource local stack:
+
+```bash
+cd frontend
+python3 ../scripts/pnpm.py build
+cd ..
+make kb-start
+```
+
+Open `http://localhost:2026`. Use `make stop` to stop the services. Rebuild after
+frontend changes; `kb-start` serves the prebuilt frontend without hot reload or
+dependency synchronization. The local BGE service needs its model cache on first
+use. Agent answers additionally require the configured chat model to be available.
+The corpus lives in `data/knowledge_base/`; managed uploads build index entries and
+retain document versions. Direct file edits require an index rebuild.
+
 ### Configuration
 
 1. **Clone the DeerFlow repository**
 
    ```bash
-   git clone https://github.com/bytedance/deer-flow.git
+   git clone https://github.com/MYRGoGoing/deer-flow.git
    cd deer-flow
    ```
+
+   This repository contains the enterprise knowledge-base customization of
+   [ByteDance DeerFlow](https://github.com/bytedance/deer-flow). To update an
+   existing checkout, run `git pull --ff-only` after committing local changes.
+   Local `.env`, `config.yaml`, model caches, generated indexes, and runtime
+   data are excluded from Git; configure them separately on each machine.
 
 2. **Run the setup wizard**
 

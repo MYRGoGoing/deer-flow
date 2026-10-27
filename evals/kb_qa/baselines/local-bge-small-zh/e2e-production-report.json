@@ -1,0 +1,1712 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-09-15T18:08:57+08:00",
+  "golden_set_sha256": "80423f9e0bc7600d693ac597a3ed9798a5e1cb5f03262bcfc6615be93c3473f1",
+  "corpus_manifest_hash": "5de6c3c967c8c5b85330b02c023cc3baf6e8f04f51500484397be37a5533ce83",
+  "embedding_backend": "openai:BAAI/bge-small-zh-v1.5",
+  "generator": "openai:deepseek-v4-pro",
+  "judge": null,
+  "case_ids": [
+    "arch-001",
+    "arch-002",
+    "arch-003",
+    "arch-004",
+    "arch-005",
+    "crypto-001",
+    "crypto-002",
+    "crypto-003",
+    "crypto-004",
+    "crypto-005",
+    "overview-001",
+    "overview-002",
+    "overview-003",
+    "overview-004",
+    "overview-005",
+    "rbft-001",
+    "rbft-002",
+    "rbft-003",
+    "rbft-004",
+    "rbft-005",
+    "evm-001",
+    "evm-002",
+    "evm-003",
+    "evm-004",
+    "evm-005",
+    "gas-001",
+    "gas-002",
+    "gas-003",
+    "gas-004",
+    "gas-005",
+    "hvm-001",
+    "hvm-002",
+    "hvm-003",
+    "hvm-004",
+    "hvm-005",
+    "baas-001",
+    "baas-002",
+    "baas-003",
+    "baas-004",
+    "baas-005",
+    "xchain-001",
+    "xchain-002",
+    "xchain-003",
+    "xchain-004",
+    "xchain-005",
+    "rpc-001",
+    "rpc-002",
+    "rpc-003",
+    "rpc-004",
+    "rpc-005",
+    "oov-001",
+    "oov-002",
+    "oov-003",
+    "oov-004",
+    "oov-005",
+    "oov-006",
+    "oov-007",
+    "oov-008",
+    "oov-009",
+    "oov-010"
+  ],
+  "run_signature": "c3039ed0ae40cc60a6be9ce4ba181e9c13b49b57af74c5db87ec230db5695681",
+  "metrics": {
+    "case_count": 60,
+    "answerable_count": 50,
+    "unanswerable_count": 10,
+    "refusal_accuracy": 1.0,
+    "keyword_recall": 0.93,
+    "answer_token_f1": 0.3875643411093479,
+    "citation_validity": 1.0,
+    "expected_source_citation_rate": 1.0,
+    "faithfulness": null,
+    "answer_relevancy": null,
+    "judged_count": 0
+  },
+  "latency_ms": {
+    "mean": 5264.114294450034,
+    "p50": 4596.181375000015,
+    "p95": 12806.563666003058
+  },
+  "cases": [
+    {
+      "id": "arch-001",
+      "question": "Hyperchain 平台整体架构分为哪几层？",
+      "unanswerable": false,
+      "answer": "根据检索证据，Hyperchain 平台整体架构自下而上分为 **存储层、核心层、接口层与服务层** 四层[1]。",
+      "retrieved_sources": [
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "platform/platform-overview.md",
+        "baas/deployment-modes.md",
+        "crosschain/bitxhub-overview.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.6190476190476191,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3315.8277080001426
+    },
+    {
+      "id": "arch-002",
+      "question": "平台默认使用哪个账本存储引擎？是否可以替换？",
+      "unanswerable": false,
+      "answer": "平台默认使用 **RocksDB** 作为账本存储引擎，并且支持可选替换为 **LevelDB**[1]。同时，平台架构支持存储引擎按需替换，属于可插拔架构的一部分[3]。",
+      "retrieved_sources": [
+        "platform/architecture.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/platform-overview.md",
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "platform/platform-overview.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.3103448275862069,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3118.358875002741
+    },
+    {
+      "id": "arch-003",
+      "question": "VP 节点和 NVP 节点的职责有什么区别？",
+      "unanswerable": false,
+      "answer": "VP 节点与 NVP 节点的职责区别如下：\n\n- **VP 节点**：共识节点，参与出块投票，持有完整账本[2]。\n- **NVP 节点**：非共识节点，同步账本数据但不参与共识，用于数据只读场景[2]。\n\n核心区别在于：VP 节点参与共识出块，NVP 节点不参与共识、仅同步账本数据用于只读场景[2]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.375,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 12766.6494590012
+    },
+    {
+      "id": "arch-004",
+      "question": "Namespace 多账本机制如何实现业务隔离？",
+      "unanswerable": false,
+      "answer": "Namespace 多账本机制通过以下方式实现业务隔离：\n\n- 每个 namespace 是一条逻辑上独立的账本，拥有独立的账本数据、合约与成员权限[1]。\n- 同一物理集群可承载多个 namespace，实现“一网多用”[1]。\n- API 调用时通过请求体中的 `namespace` 字段指定目标账本，默认值为 `global`[1]。\n- 通过 namespace 命名空间机制实现业务数据隔离，不同业务方可共享底层网络而互不可见[2]。",
+      "retrieved_sources": [
+        "platform/architecture.md",
+        "platform/platform-overview.md",
+        "contract-dev/gas-billing.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.35658914728682173,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 8873.56812500002
+    },
+    {
+      "id": "arch-005",
+      "question": "JSON-RPC 请求不传 namespace 时默认使用哪个账本？",
+      "unanswerable": false,
+      "answer": "JSON-RPC 请求不传 `namespace` 时，默认使用 `global` 账本。[1][3]",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "platform/architecture.md",
+        "contract-dev/gas-billing.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/cryptography.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.14814814814814817,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3344.322541997826
+    },
+    {
+      "id": "crypto-001",
+      "question": "SM2 算法在 Hyperchain 里主要用于什么场景？",
+      "unanswerable": false,
+      "answer": "根据检索证据，SM2 算法在 Hyperchain 中主要用于以下场景：节点签名、交易签名、证书密钥 [6]。这是平台可插拔密码套件中的国家商用密码（国密）算法配置的一部分 [3]；同时，不同 namespace 可以按需分别配置国密或国际算法，因此 SM2 可能用于需要国密合规的业务场景 [8]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "platform/cryptography.md",
+        "platform/platform-overview.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.20930232558139536,
+        "citation_count": 3,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 6151.047666997329
+    },
+    {
+      "id": "crypto-002",
+      "question": "SM3 密码杂凑算法有哪些用途？",
+      "unanswerable": false,
+      "answer": "SM3 密码杂凑算法的用途包括：区块哈希、状态根计算[1]。",
+      "retrieved_sources": [
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/platform-overview.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.46153846153846156,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3079.5872080016125
+    },
+    {
+      "id": "crypto-003",
+      "question": "SM4 在国密支持中解决什么问题？",
+      "unanswerable": false,
+      "answer": "SM4 在国密支持中作为分组对称算法，用于解决节点间通信加密和数据加密存储问题[4]。",
+      "retrieved_sources": [
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "contract-dev/evm-compatibility.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.7368421052631579,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 6873.121874999924
+    },
+    {
+      "id": "crypto-004",
+      "question": "同一个 namespace 里能否混用国密和国际算法？",
+      "unanswerable": false,
+      "answer": "不能。同一 namespace 内必须使用统一的密码套件；不同 namespace 可以分别配置国密或国际算法，因此不能在同一个 namespace 内混用国密和国际算法[1]。",
+      "retrieved_sources": [
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md",
+        "platform/platform-overview.md",
+        "platform/architecture.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.5,
+        "answer_token_f1": 0.6666666666666667,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 7783.076624997193
+    },
+    {
+      "id": "crypto-005",
+      "question": "联盟链证书体系中根 CA 由谁持有？",
+      "unanswerable": false,
+      "answer": "根据检索证据，联盟链证书体系中根 CA 由**联盟委员会**持有[1]。",
+      "retrieved_sources": [
+        "platform/cryptography.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.6666666666666666,
+        "answer_token_f1": 0.4117647058823529,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 2789.5063329997356
+    },
+    {
+      "id": "overview-001",
+      "question": "Hyperchain 是什么类型的区块链平台？",
+      "unanswerable": false,
+      "answer": "Hyperchain 是趣链科技自主研发的企业级联盟区块链底层平台，面向金融、政务、供应链等场景提供分布式账本能力[1]。",
+      "retrieved_sources": [
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/hvm-guide.md",
+        "baas/deployment-modes.md",
+        "contract-dev/hvm-guide.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.5,
+        "answer_token_f1": 0.5714285714285715,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4787.230249999993
+    },
+    {
+      "id": "overview-002",
+      "question": "Hyperchain 单链的交易吞吐量处于什么量级？",
+      "unanswerable": false,
+      "answer": "Hyperchain 单链的交易吞吐量处于**万级 TPS**量级[1][2]。\n\n具体而言，在万兆内网、SSD 存储的标准测试环境下，单链配置数十个共识节点时仍可获得万级 TPS，交易确认延迟通常在秒级以内[1]。平台核心特性也说明，采用 RBFT 共识算法后单链交易吞吐量可达万级 TPS[2]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/platform-overview.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.24175824175824176,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 5263.516750001145
+    },
+    {
+      "id": "overview-003",
+      "question": "平台支持哪两种智能合约引擎？",
+      "unanswerable": false,
+      "answer": "平台支持 **HVM** 和 **EVM** 两种智能合约引擎：\n\n- **HVM**：自研的 Java 智能合约引擎，支持使用 Java 语言编写合约并编译为字节码后部署执行[1]。\n- **EVM**：兼容以太坊虚拟机，支持 Solidity 智能合约的部署与调用[2]。\n\n平台合约子系统采用 HVM 与 EVM 双引擎执行智能合约[4][6]。",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "contract-dev/gas-billing.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.23076923076923078,
+        "citation_count": 4,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 6071.213416998944
+    },
+    {
+      "id": "overview-004",
+      "question": "Hyperchain 的可插拔架构包括哪些模块？",
+      "unanswerable": false,
+      "answer": "根据检索证据，Hyperchain 的可插拔架构包括以下模块：**共识模块、密码套件、存储引擎**，均可按需替换，便于适配不同行业合规要求[5]。其中，密码套件的可插拔设计在密码学算法文档中也有说明[2]。",
+      "retrieved_sources": [
+        "platform/architecture.md",
+        "platform/cryptography.md",
+        "api-reference/jsonrpc-basics.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.34210526315789475,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 6972.2269590020005
+    },
+    {
+      "id": "overview-005",
+      "question": "开放联盟链品牌飞洛面向什么用户？",
+      "unanswerable": false,
+      "answer": "开放联盟链品牌“飞洛”面向中小企业用户，为其提供低门槛的链上服务接入方式[1]。",
+      "retrieved_sources": [
+        "platform/platform-overview.md",
+        "platform/cryptography.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.6666666666666666,
+        "answer_token_f1": 0.631578947368421,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 2925.076708001143
+    },
+    {
+      "id": "rbft-001",
+      "question": "RBFT 的全称和定位是什么？",
+      "unanswerable": false,
+      "answer": "RBFT 的全称是 Redundant Byzantine Fault Tolerance，定位为 Hyperchain 默认的拜占庭容错共识算法，在 PBFT 基础上增强了主节点作恶检测与动态恢复能力。[5]",
+      "retrieved_sources": [
+        "platform/architecture.md",
+        "contract-dev/hvm-guide.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.56,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4866.781417000311
+    },
+    {
+      "id": "rbft-002",
+      "question": "4 个共识节点在 RBFT 下能容忍几个拜占庭故障节点？",
+      "unanswerable": false,
+      "answer": "4 个共识节点在 RBFT 下能容忍 **1 个**拜占庭故障节点[1]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.5,
+        "answer_token_f1": 0.3333333333333333,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3998.5604169996805
+    },
+    {
+      "id": "rbft-003",
+      "question": "RBFT 正常共识包含哪三个阶段？",
+      "unanswerable": false,
+      "answer": "RBFT 正常共识包含以下三个阶段[1]：\n\n1. **Pre-prepare（预准备）**：主节点将交易批量打包为提案并广播给从节点。\n2. **Prepare（准备）**：从节点校验提案后广播 prepare 消息，收到 quorum 数量即完成准备。\n3. **Commit（提交）**：节点广播 commit 消息，达到 quorum 后落盘出块。\n\n其中 quorum 通常为 2f + 1[1]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.1801801801801802,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4675.371290999465
+    },
+    {
+      "id": "rbft-004",
+      "question": "RBFT 的 quorum 数量通常是多少？",
+      "unanswerable": false,
+      "answer": "根据检索证据，RBFT 的 quorum 数量通常为 **2f + 1**[1]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.4444444444444445,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3102.160999998887
+    },
+    {
+      "id": "rbft-005",
+      "question": "RBFT 什么时候会触发视图切换？",
+      "unanswerable": false,
+      "answer": "RBFT 会在以下情况触发视图切换：主节点超时、主节点返回错误结果，以及通过冗余消息校验机制识别到主节点的错误排序行为时主动触发切换[1]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/gas-billing.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.6666666666666666,
+        "answer_token_f1": 0.36065573770491804,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4225.665374997334
+    },
+    {
+      "id": "evm-001",
+      "question": "Hyperchain 能否直接部署 Solidity 合约？",
+      "unanswerable": false,
+      "answer": "可以。Hyperchain 内置兼容以太坊虚拟机（EVM），支持 Solidity 智能合约的部署与调用[5]。支持范围包括 Solidity 0.8 及以下主流版本编写的合约；标准 ERC-20、ERC-721 等代币合约可直接迁移；通过 Remix 编译产出的字节码与 ABI 可直接部署[1]。\n\n需注意：Solidity 合约应通过 EVM 部署，而非 HVM。HVM 是自研 Java 智能合约引擎，用于 Java 合约[2][4]；EVM 与 HVM 并列运行，需要复用以太坊开源合约库时选择 EVM[7]。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "baas/deployment-modes.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.23880597014925373,
+        "citation_count": 5,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 12806.563666003058
+    },
+    {
+      "id": "evm-002",
+      "question": "ERC-20 和 ERC-721 合约能否迁移到 Hyperchain？",
+      "unanswerable": false,
+      "answer": "可以。根据证据[1]，Hyperchain 的 EVM 兼容支持范围包括标准 ERC-20、ERC-721 等代币合约，可直接迁移；同时 Solidity 0.8 及以下主流版本编写的合约、通过 Remix 编译产出的字节码与 ABI 也可直接部署[1]。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "api-reference/jsonrpc-basics.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.4054054054054054,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4671.951291998994
+    },
+    {
+      "id": "evm-003",
+      "question": "Remix 编译产物如何在 Hyperchain 上使用？",
+      "unanswerable": false,
+      "answer": "根据现有资料，Remix 编译产物在 Hyperchain 上的使用方式如下：\n\n1. **可直接部署**：通过 Remix 编译产出的字节码与 ABI 可直接部署到 Hyperchain [2]。\n2. **对接方式**：开发者可继续使用 web3.js、web3.py 等标准 SDK 对接，仅需将 RPC 端点指向 Hyperchain 节点，并在 JSON-RPC 请求中携带 `namespace` 字段 [4]。\n\n知识库中暂无更具体的部署操作步骤说明。",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "api-reference/jsonrpc-basics.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.20689655172413793,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 9333.06020800228
+    },
+    {
+      "id": "evm-004",
+      "question": "Hyperchain 的共识与以太坊 PoS 有何差异？",
+      "unanswerable": false,
+      "answer": "根据提供的检索证据，Hyperchain 的共识与以太坊 PoS 的主要差异如下：\n\n1. **共识机制类型不同**：以太坊为 PoS 公链共识；Hyperchain 为 RBFT 联盟链共识，且无挖矿概念 [1]。\n\n2. **共识算法特性不同**：Hyperchain 采用 RBFT（Redundant Byzantine Fault Tolerance）拜占庭容错共识算法，在 PBFT 基础上增强了主节点作恶检测与动态恢复能力 [5]，负责交易定序与出块 [8]。\n\n3. **性能表现**：采用 RBFT 共识的",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "platform/cryptography.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/platform-overview.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.24060150375939848,
+        "citation_count": 3,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 17089.284459001647
+    },
+    {
+      "id": "evm-005",
+      "question": "复用 web3.js 或 web3.py 时需要注意什么参数？",
+      "unanswerable": false,
+      "answer": "复用 web3.js 或 web3.py 时，需要注意的参数/配置为：\n\n- 将 RPC 端点指向 Hyperchain 节点；\n- 在 JSON-RPC 请求中携带 `namespace` 字段 [1]。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.5806451612903226,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 10404.850499999156
+    },
+    {
+      "id": "gas-001",
+      "question": "Gas 在 Hyperchain 中起什么作用？",
+      "unanswerable": false,
+      "answer": "在 Hyperchain 中，Gas 主要用于智能合约执行的计费与资源控制：\n\n- 交易需携带 `gasLimit` 与 `gasPrice` 提交，合约执行过程中逐指令累计 Gas[6]。\n- 执行成功时按实际消耗扣费；执行失败或异常回滚时，已消耗部分不退还；`gasLimit` 不足时交易立即终止并回滚[6]。\n- 实践中应预估最坏情况消耗，避免 `gasLimit` 不足导致整笔交易失败；大批量数据处理建议拆分为多笔交易，以控制单笔 Gas 上限[2]。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 0.0,
+        "answer_token_f1": 0.144,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 8913.154624999152
+    },
+    {
+      "id": "gas-002",
+      "question": "平台支持哪两种 Gas 计费模式？",
+      "unanswerable": false,
+      "answer": "平台支持两种 Gas 计费模式：[1]\n\n1. **免费模式**：不扣费，仅用 gas 值做执行步数限制，适合内部联盟试点。\n2. **计费模式**：按 `实际消耗 gas × gasPrice` 从交易发起账户扣除费用，适合多方利益独立的商业联盟。",
+      "retrieved_sources": [
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "platform/platform-overview.md",
+        "baas/deployment-modes.md",
+        "api-reference/jsonrpc-basics.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.16867469879518074,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4842.0984169970325
+    },
+    {
+      "id": "gas-003",
+      "question": "计费模式下手续费怎么计算？",
+      "unanswerable": false,
+      "answer": "计费模式下，手续费按 **实际消耗 gas × gasPrice** 计算，并从交易发起账户扣除[1]。其中 gasPrice 由联盟管理员设定，全网统一[2]。执行成功时按实际消耗扣费；执行失败因异常回滚时，已消耗部分不退还[7]。",
+      "retrieved_sources": [
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/cryptography.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/gas-billing.md",
+        "api-reference/jsonrpc-basics.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.31578947368421056,
+        "citation_count": 3,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 14754.911250001896
+    },
+    {
+      "id": "gas-004",
+      "question": "合约执行失败回滚后，已消耗 Gas 会退还吗？",
+      "unanswerable": false,
+      "answer": "不会退还。根据证据[1]：合约执行失败因异常回滚时，已消耗部分不退还；gasLimit 不足时交易立即终止并回滚。因此，合约执行失败回滚后，已消耗 Gas 不会退还。",
+      "retrieved_sources": [
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/gas-billing.md",
+        "baas/deployment-modes.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.5,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4664.733083998726
+    },
+    {
+      "id": "gas-005",
+      "question": "gasLimit 不足时交易会发生什么？",
+      "unanswerable": false,
+      "answer": "gasLimit 不足时，交易会立即终止并回滚，导致整笔交易失败[1][2]；该情况也可能作为“gasLimit 过小”错误返回[6]。此外，执行失败因异常回滚时，已消耗的 gas 部分不退还[2]。",
+      "retrieved_sources": [
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/gas-billing.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.19354838709677416,
+        "citation_count": 3,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 12678.565750000416
+    },
+    {
+      "id": "hvm-001",
+      "question": "HVM 使用什么语言开发智能合约？",
+      "unanswerable": false,
+      "answer": "HVM 使用 **Java 语言**开发智能合约。开发者可使用 Java 编写合约，编译为字节码后部署到链上执行[1]。开发流程中需使用 JDK 8+ 编写合约类并引入 HVM 合约 SDK，编译打包为 jar 字节码[2]。",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "api-reference/jsonrpc-basics.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.273972602739726,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3752.78233300196
+    },
+    {
+      "id": "hvm-002",
+      "question": "HVM 合约编译打包后的产物格式是什么？",
+      "unanswerable": false,
+      "answer": "HVM 合约编译打包后的产物格式是 **jar 字节码**[1]。",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/gas-billing.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.3225806451612903,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 2572.091374997399
+    },
+    {
+      "id": "hvm-003",
+      "question": "HVM 如何声明合约入口和可调用方法？",
+      "unanswerable": false,
+      "answer": "HVM 通过注解声明合约入口与可调用方法：开发流程中要求“以注解声明合约入口与可调用方法”[1]。从合约基本结构示例可见，合约类使用 `@Contract` 注解声明为合约入口，对外可调用的方法使用 `@Transaction` 注解声明，例如示例中的 `transfer` 方法[1]。",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.3478260869565218,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 17046.589000001404
+    },
+    {
+      "id": "hvm-004",
+      "question": "HVM 合约类的成员变量代表什么？",
+      "unanswerable": false,
+      "answer": "HVM 合约类的成员变量代表链上状态，修改会随交易原子生效；支持的类型包括基础类型、String、POJO 以及其集合包装。[1]",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.42553191489361697,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3886.849999998958
+    },
+    {
+      "id": "hvm-005",
+      "question": "HVM 和 EVM 合约能否互相调用？",
+      "unanswerable": false,
+      "answer": "可以。根据证据[1]，HVM 与 EVM 并列运行，同一 namespace 内的两类合约可以通过跨合约调用接口互相访问，因此 HVM 和 EVM 合约能够互相调用[1]。",
+      "retrieved_sources": [
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.5263157894736842,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 7045.38570799923
+    },
+    {
+      "id": "baas-001",
+      "question": "BaaS 平台提供哪些生命周期能力？",
+      "unanswerable": false,
+      "answer": "根据检索证据，BaaS 平台提供的全生命周期能力包括：\n\n- 一键部署\n- 监控运维\n- 成员管理\n\n以上能力来自 [1]。此外，BaaS 平台还提供可视化运维、一键部署与监控告警能力 [4]。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "platform/architecture.md",
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/gas-billing.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.3870967741935483,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4896.191333002207
+    },
+    {
+      "id": "baas-002",
+      "question": "BaaS 支持哪三种部署形态？",
+      "unanswerable": false,
+      "answer": "根据[1]，BaaS 支持以下三种部署形态：\n\n1. SaaS 托管\n2. 私有化部署\n3. 混合云",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/architecture.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "baas/deployment-modes.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.36363636363636365,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3766.657457999827
+    },
+    {
+      "id": "baas-003",
+      "question": "金融或政务强合规场景应选择哪种 BaaS 形态？为什么？",
+      "unanswerable": false,
+      "answer": "应选择**私有化部署**形态。\n\n原因：根据证据[1]，私有化部署的适用场景明确包括“金融、政务等强合规场景”，其特点为“全套组件部署在客户机房，数据不出域”。因此，金融或政务强合规场景选择私有化部署，可以满足数据不出域、本地化管控等强合规要求[1]。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "platform/cryptography.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/gas-billing.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.2978723404255319,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4596.181375000015
+    },
+    {
+      "id": "baas-004",
+      "question": "BaaS 私有化部署的共识节点硬件基线是多少？",
+      "unanswerable": false,
+      "answer": "根据检索证据，BaaS 私有化部署的共识节点硬件基线为：**建议 8C16G 起步，SSD 磁盘**[1]。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.4210526315789473,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 2725.863957999536
+    },
+    {
+      "id": "baas-005",
+      "question": "扩容共识节点需要停链吗？",
+      "unanswerable": false,
+      "answer": "不需要停链。\n\n根据检索证据，扩容共识节点时经联盟审批后会自动加入共识集合，无需停链[1]；平台支持不停链增删共识节点，新增节点经过准入审批后同步历史账本，随后加入共识集合[3]。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md",
+        "platform/rbft-consensus.md",
+        "baas/deployment-modes.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.4347826086956522,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3689.0870000024734
+    },
+    {
+      "id": "xchain-001",
+      "question": "BitXHub 采用什么架构解决异构链互操作？",
+      "unanswerable": false,
+      "answer": "BitXHub 采用**中继链架构**解决异构链之间的资产互换与合约互操作问题[1]。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.6486486486486487,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3838.9095830025326
+    },
+    {
+      "id": "xchain-002",
+      "question": "BitXHub 总体架构包含哪三类角色？",
+      "unanswerable": false,
+      "answer": "根据[1]，BitXHub 总体架构包含以下三类角色：\n\n1. **应用链**：需要互操作的现有区块链（Hyperchain、Fabric、以太坊等）。\n2. **跨链网关 Pier**：部署在应用链侧，负责跨链交易的捕获、协议转换与证明传递。\n3. **中继链**：一条独立的区块链，负责应用链注册、跨链交易路由与验证规则管理。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.17475728155339806,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 8558.998374999646
+    },
+    {
+      "id": "xchain-003",
+      "question": "Pier 在 BitXHub 中负责什么？",
+      "unanswerable": false,
+      "answer": "Pier 在 BitXHub 中是跨链网关，部署在应用链侧，负责跨链交易的捕获、协议转换与证明传递[7]。具体而言，Pier 将各链原生交易转换为 IBTP 报文，以便中继链按路由规则投递到目标链网关[1]。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "baas/deployment-modes.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.45070422535211263,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 5819.570084000588
+    },
+    {
+      "id": "xchain-004",
+      "question": "IBTP 协议的作用是什么？",
+      "unanswerable": false,
+      "answer": "IBTP（InterBlockchain Transfer Protocol）协议的作用是：将跨链消息统一封装为 IBTP 结构，包含来源链、目标链、payload 与证明信息；Pier 将各链原生交易转换为 IBTP 报文，中继链按路由规则投递到目标链网关[1]。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/gas-billing.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/hvm-guide.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.5454545454545454,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 6583.070042001054
+    },
+    {
+      "id": "xchain-005",
+      "question": "BitXHub 如何防止伪造跨链消息？",
+      "unanswerable": false,
+      "answer": "BitXHub 通过中继链上的验证合约防止伪造跨链消息。应用链注册时向中继链提交验证人集合与验算规则，中继链上的验证合约依据该规则校验跨链证明的真实性，从而防止伪造跨链消息[1]。跨链消息统一封装为 IBTP 结构，其中包含证明信息，供验证合约进行真实性校验[2]。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "platform/cryptography.md",
+        "platform/platform-overview.md",
+        "contract-dev/gas-billing.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.4631578947368421,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 4216.412000001583
+    },
+    {
+      "id": "rpc-001",
+      "question": "Hyperchain JSON-RPC 支持哪些访问通道？",
+      "unanswerable": false,
+      "answer": "Hyperchain JSON-RPC 支持 HTTP 与 WebSocket 两种访问通道[1]。",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/rbft-consensus.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.6666666666666666,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 8301.393124998867
+    },
+    {
+      "id": "rpc-002",
+      "question": "JSON-RPC 请求体的关键字段有哪些？",
+      "unanswerable": false,
+      "answer": "根据检索证据，JSON-RPC 请求体的关键字段包括：\n\n- `jsonrpc`：协议版本，示例中为 `\"2.0\"` [7]。\n- `namespace`：指定目标账本，省略时默认 `global` [7]；对接 Hyperchain 节点时需在请求中携带该字段 [1]。\n- `method`：调用的方法名，如 `\"tx_getTransactionCount\"` [7]。\n- `params`：方法参数，如 `[\"0x{account}\", false]` [7]。\n- `id`：请求标识，如 `1` [7]。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/architecture.md",
+        "platform/cryptography.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.08633093525179857,
+        "citation_count": 2,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 9267.132083001343
+    },
+    {
+      "id": "rpc-003",
+      "question": "JSON-RPC 只读调用会上链或消耗 gas 吗？",
+      "unanswerable": false,
+      "answer": "根据检索证据，JSON-RPC 的只读调用**不会上链，也不会消耗 gas**。\n\n[1] 明确指出：只读调用为本地模拟执行，不上链、不消耗 gas，适合查询型接口。",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/gas-billing.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.48387096774193555,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3571.1119170009624
+    },
+    {
+      "id": "rpc-004",
+      "question": "JSON-RPC error 对象由哪些字段组成？",
+      "unanswerable": false,
+      "answer": "JSON-RPC error 对象由 `code` 与 `message` 两个字段组成[1]。",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/gas-billing.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.5,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3350.2380829995673
+    },
+    {
+      "id": "rpc-005",
+      "question": "JSON-RPC 批量请求的响应顺序如何确定？",
+      "unanswerable": false,
+      "answer": "JSON-RPC 批量请求的响应顺序按请求数组中的顺序返回对应结果，即“响应按序返回对应结果”[1]。",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/gas-billing.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": false,
+        "refusal_correct": true,
+        "keyword_recall": 1.0,
+        "answer_token_f1": 0.37209302325581395,
+        "citation_count": 1,
+        "citation_validity": 1.0,
+        "expected_source_cited": true
+      },
+      "judge": null,
+      "latency_ms": 3119.6999579988187
+    },
+    {
+      "id": "oov-001",
+      "question": "Hyperchain Token 现在的价格和投资建议是什么？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/hvm-guide.md",
+        "crosschain/bitxhub-overview.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 11.61974999922677
+    },
+    {
+      "id": "oov-002",
+      "question": "2026 年 Hyperchain 产品路线图里承诺了哪些新功能？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "api-reference/jsonrpc-basics.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "contract-dev/hvm-guide.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 11.617459000262897
+    },
+    {
+      "id": "oov-003",
+      "question": "趣链科技有多少员工，总部办公地址在哪里？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "platform/platform-overview.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "api-reference/jsonrpc-basics.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/evm-compatibility.md",
+        "crosschain/bitxhub-overview.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 13.241041000583209
+    },
+    {
+      "id": "oov-004",
+      "question": "Bitcoin 挖矿难度调整机制是怎么工作的？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/cryptography.md",
+        "contract-dev/hvm-guide.md",
+        "contract-dev/evm-compatibility.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 10.98420899870689
+    },
+    {
+      "id": "oov-005",
+      "question": "Solidity 0.9 有哪些新特性？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "platform/platform-overview.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/architecture.md",
+        "contract-dev/evm-compatibility.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "api-reference/jsonrpc-basics.md",
+        "contract-dev/hvm-guide.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 10.442916998727014
+    },
+    {
+      "id": "oov-006",
+      "question": "Kubernetes HPA 自动扩缩容应该怎么配置？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/rbft-consensus.md",
+        "platform/rbft-consensus.md",
+        "contract-dev/gas-billing.md",
+        "contract-dev/evm-compatibility.md",
+        "platform/cryptography.md",
+        "platform/cryptography.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 9.734540999488672
+    },
+    {
+      "id": "oov-007",
+      "question": "浙江省数据合规细则对区块链存证的具体条款是什么？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/architecture.md",
+        "crosschain/bitxhub-overview.md",
+        "platform/platform-overview.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 8.979999998700805
+    },
+    {
+      "id": "oov-008",
+      "question": "企业采购 Hyperchain 私有化部署能打几折？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "baas/deployment-modes.md",
+        "baas/deployment-modes.md",
+        "platform/architecture.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/architecture.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 8.114500000374392
+    },
+    {
+      "id": "oov-009",
+      "question": "以太坊 PoS 最终性延迟的最新数值是多少？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "contract-dev/evm-compatibility.md",
+        "platform/rbft-consensus.md",
+        "platform/cryptography.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/evm-compatibility.md",
+        "contract-dev/hvm-guide.md",
+        "platform/rbft-consensus.md",
+        "api-reference/jsonrpc-basics.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 8.25733300007414
+    },
+    {
+      "id": "oov-010",
+      "question": "公司内部差旅报销系统的登录入口在哪里？",
+      "unanswerable": true,
+      "answer": "知识库中暂无相关内容，无法基于现有资料给出可靠回答。",
+      "retrieved_sources": [
+        "platform/rbft-consensus.md",
+        "baas/deployment-modes.md",
+        "platform/platform-overview.md",
+        "contract-dev/gas-billing.md",
+        "platform/architecture.md",
+        "contract-dev/hvm-guide.md",
+        "api-reference/jsonrpc-basics.md",
+        "platform/rbft-consensus.md"
+      ],
+      "metrics": {
+        "refused": true,
+        "refusal_correct": true,
+        "keyword_recall": null,
+        "answer_token_f1": null,
+        "citation_count": 0,
+        "citation_validity": 0.0,
+        "expected_source_cited": null
+      },
+      "judge": null,
+      "latency_ms": 7.607874998939224
+    }
+  ]
+}

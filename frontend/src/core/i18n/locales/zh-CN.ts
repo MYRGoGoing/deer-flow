@@ -281,7 +281,7 @@ export const zhCN: Translations = {
     newChat: "新对话",
     chats: "对话",
     channels: "渠道",
-    recentChats: "最近的对话",
+    recentChats: "最近问答",
     demoChats: "演示对话",
     agents: "智能体",
     scheduledTasks: "定时任务",
@@ -587,7 +587,7 @@ export const zhCN: Translations = {
 
   // Page titles (document title)
   pages: {
-    appName: "DeerFlow",
+    appName: "企业知识库",
     chats: "对话",
     newChat: "新对话",
     untitled: "未命名",

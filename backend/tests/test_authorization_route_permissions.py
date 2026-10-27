@@ -90,6 +90,8 @@ async def test_route_permissions_disabled_preserves_all_permissions(monkeypatch)
         Permissions.RUNS_CREATE,
         Permissions.RUNS_READ,
         Permissions.RUNS_CANCEL,
+        Permissions.KB_READ,
+        Permissions.KB_WRITE,
     ]
     cached.assert_not_called()
 
@@ -106,6 +108,8 @@ async def test_route_permissions_use_async_provider_and_trusted_principal(monkey
         Permissions.THREADS_WRITE,
         Permissions.RUNS_CREATE,
         Permissions.RUNS_READ,
+        Permissions.KB_READ,
+        Permissions.KB_WRITE,
     ]
     assert [(request.resource, request.action, request.target) for request in provider.requests] == [
         ("route", "read", Permissions.THREADS_READ),
@@ -114,6 +118,8 @@ async def test_route_permissions_use_async_provider_and_trusted_principal(monkey
         ("route", "create", Permissions.RUNS_CREATE),
         ("route", "read", Permissions.RUNS_READ),
         ("route", "cancel", Permissions.RUNS_CANCEL),
+        ("route", "read", Permissions.KB_READ),
+        ("route", "write", Permissions.KB_WRITE),
     ]
     principal = provider.requests[0].principal
     assert principal.user_id == "user-123"
@@ -136,6 +142,8 @@ async def test_route_permissions_fail_closed_denies_only_the_failed_permission(m
         Permissions.THREADS_DELETE,
         Permissions.RUNS_CREATE,
         Permissions.RUNS_READ,
+        Permissions.KB_READ,
+        Permissions.KB_WRITE,
     ]
 
 
@@ -153,6 +161,8 @@ async def test_route_permissions_fail_open_allows_the_failed_permission(monkeypa
         Permissions.RUNS_CREATE,
         Permissions.RUNS_READ,
         Permissions.RUNS_CANCEL,
+        Permissions.KB_READ,
+        Permissions.KB_WRITE,
     ]
 
 
@@ -170,6 +180,8 @@ async def test_route_permissions_fail_open_allows_the_failed_permission(monkeypa
                 Permissions.RUNS_CREATE,
                 Permissions.RUNS_READ,
                 Permissions.RUNS_CANCEL,
+                Permissions.KB_READ,
+                Permissions.KB_WRITE,
             ],
         ),
     ],
